@@ -57,7 +57,7 @@ def infer_one_sample(image, prompt, clip_model, clip_processor, tokenizer, devic
     text_input = _tokenize(prompt).to(device)
     if condition is None:
         condition = "light, color, clarity, tone, style, ambiance, artistry, shape, face, hair, hands, limbs, structure, instance, texture, quantity, attributes, position, number, location, word, things."
-    condition_batch = _tokenize(condition_dict["overall"]).repeat(text_input.shape[0],1).to(device)
+    condition_batch = _tokenize(condition).repeat(text_input.shape[0],1).to(device)
 
     with torch.no_grad():
         text_f, text_features = clip_model.model.get_text_features(text_input)
