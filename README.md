@@ -19,8 +19,9 @@ pip install -e .
 ## Inference with MPS
 We display here an example for running inference with MPS:
 ```python
-# import
-from transformers import AutoProcessor, AutoModel
+from io import BytesIO
+
+from transformers import CLIPImageProcessor, AutoTokenizer
 from PIL import Image
 import torch
 
